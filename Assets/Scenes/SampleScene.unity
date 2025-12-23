@@ -4402,7 +4402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae60c00b524cda4584f07f42d9bea51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signalingUrl: ws://10.10.40.10:3000
+  signalingUrl: 
   saveDirectory: 
 --- !u!1 &1499922799
 GameObject:

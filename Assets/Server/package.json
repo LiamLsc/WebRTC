@@ -1,13 +1,26 @@
 {
   "name": "unity-webrtc-signaling-server",
   "version": "1.0.0",
-  "description": "Simple WebRTC signaling server for Unity P2P file transfer",
+  "description": "WebRTC signaling server for Unity P2P file transfer, optimized for Zeabur",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "ws": "^8.16.0",
     "uuid": "^9.0.1"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "webrtc",
+    "signaling",
+    "unity",
+    "p2p",
+    "websocket"
+  ],
+  "author": "Liam Lee",
+  "license": "MIT"
 }

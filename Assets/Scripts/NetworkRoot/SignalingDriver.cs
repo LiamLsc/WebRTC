@@ -11,7 +11,7 @@ public class SignalingDriver : MonoBehaviour
     void Awake()
     {
         if (string.IsNullOrEmpty(signalingUrl))
-            signalingUrl = "ws://localhost:3000";
+            signalingUrl = "wss://liam-lee.zeabur.app"; // 更改为wss协议，不需要指定端口
 
         Client = new SignalingClient();
         Client.Connect(signalingUrl);

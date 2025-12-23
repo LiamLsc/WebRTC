@@ -1,0 +1,14 @@
+{
+  "build": {
+    "command": "npm install",
+    "output": "."
+  },
+  "deploy": {
+    "startCommand": "node index.js",
+    "healthCheckPath": "/health",
+    "restartPolicy": {
+      "maxRetries": 3,
+      "delay": 5000
+    }
+  }
+}
