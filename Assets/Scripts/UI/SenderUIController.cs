@@ -51,10 +51,21 @@ public class SenderUIController : MonoBehaviour
             StartCoroutine(CreateAndSendOffer());
         };
 
+        // 添加数据通道就绪日志
         rtc.OnDataChannelReady += () =>
         {
             Debug.Log($"Sender：OnDataChannelReady 事件已接收，开始发送文件 {currentFilePath}");
             StartCoroutine(fileSender.SendFile(currentFilePath, rtc.DataChannel));
+        };
+        
+        // 添加ICE连接状态变化日志
+        webRTCDriver.Manager.Peer.OnIceConnectionChange += (state) => {
+            Debug.Log($"Sender：ICE连接状态改变为: {state}");
+        };
+        
+        // 添加连接状态变化日志
+        webRTCDriver.Manager.Peer.OnConnectionStateChange += (state) => {
+            Debug.Log($"Sender：连接状态改变为: {state}");
         };
     }
 
@@ -93,6 +104,12 @@ public class SenderUIController : MonoBehaviour
 
         // 创建WebRTC对等连接
         webRTCDriver.Manager.CreatePeer(true); // true表示发送方
+        
+        // 添加ICE连接状态变化监听（在Peer创建后）
+        webRTCDriver.Manager.Peer.OnIceConnectionChange += (state) =>
+        {
+            Debug.Log($"Sender：ICE连接状态改变为: {state}");
+        };
         
         var info = new FileInfo(currentFilePath);
         shareLinkInput.text =

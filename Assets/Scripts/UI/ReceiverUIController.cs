@@ -1,7 +1,9 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.WebRTC;
-using TMPro;
 
 public class ReceiverUIController : MonoBehaviour
 {
@@ -44,16 +46,27 @@ public class ReceiverUIController : MonoBehaviour
             Debug.Log($"Receiver：成功加入房间 {roomId}，初始化 WebRTC 连接（作为接收方）");
             // 加入房间成功后，初始化WebRTC连接（作为接收方）
             rtc.CreatePeer(false); // false表示接收方
+            
+            // 添加ICE连接状态变化监听（在Peer创建后）
+            webRTCDriver.Manager.Peer.OnIceConnectionChange += (state) => {
+                Debug.Log($"Receiver：ICE连接状态改变为: {state}");
+            };
         };
         
         signaling.OnOffer += OnOfferReceived;
         signaling.OnIceCandidate += (string candidateJson) =>
         {
+            Debug.Log($"Receiver：收到ICE候选: {candidateJson}");
             var init = JsonUtility.FromJson<RTCIceCandidateInit>(candidateJson);
             var candidate = new RTCIceCandidate(init);
             rtc.Peer.AddIceCandidate(candidate);
         };
 
+        // 添加WebRTC连接状态日志
+        rtc.OnDataChannelReady += () => {
+            Debug.Log("Receiver：数据通道已就绪，可以开始接收文件");
+        };
+        
         rtc.OnDataReceived += OnDataReceived;
     }
 
@@ -74,13 +87,13 @@ public class ReceiverUIController : MonoBehaviour
         StartCoroutine(WebRTCAnswerRoutine(sdp));
     }
 
-    private System.Collections.IEnumerator WebRTCAnswerRoutine(string sdp)
+    private IEnumerator WebRTCAnswerRoutine(string sdp)
     {
         var rtc = webRTCDriver.Manager;
 
-        var offer = new Unity.WebRTC.RTCSessionDescription
+        var offer = new RTCSessionDescription
         {
-            type = Unity.WebRTC.RTCSdpType.Offer,
+            type = RTCSdpType.Offer,
             sdp = sdp
         };
 
