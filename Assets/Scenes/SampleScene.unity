@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4F20\u8F93\u5B8C\u6210\uFF01"
+  m_text: "\u5373\u5C06\u5F00\u59CB\u4F20\u8F93~"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d5b1757b2aa5a964ebc58fc1163e39d4, type: 2}
   m_sharedMaterial: {fileID: 8154438359648466438, guid: d5b1757b2aa5a964ebc58fc1163e39d4, type: 2}
@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4F20\u8F93\u5B8C\u6210\uFF01"
+  m_text: "\u5373\u5C06\u5F00\u59CB\u4F20\u8F93~"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d5b1757b2aa5a964ebc58fc1163e39d4, type: 2}
   m_sharedMaterial: {fileID: 8154438359648466438, guid: d5b1757b2aa5a964ebc58fc1163e39d4, type: 2}
@@ -2242,7 +2242,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2028256995}
   m_FillRect: {fileID: 1433884231}
   m_HandleRect: {fileID: 2028256994}
@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3556,7 +3556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.86827034, b: 0.023584902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4197,7 +4197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.86827034, b: 0.023584902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5198,7 +5198,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 745316958}
   m_FillRect: {fileID: 1268716514}
   m_HandleRect: {fileID: 745316957}

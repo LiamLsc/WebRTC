@@ -57,16 +57,6 @@ public class SenderUIController : MonoBehaviour
             Debug.Log($"Sender：OnDataChannelReady 事件已接收，开始发送文件 {currentFilePath}");
             StartCoroutine(fileSender.SendFile(currentFilePath, rtc.DataChannel));
         };
-        
-        // 添加ICE连接状态变化日志
-        webRTCDriver.Manager.Peer.OnIceConnectionChange += (state) => {
-            Debug.Log($"Sender：ICE连接状态改变为: {state}");
-        };
-        
-        // 添加连接状态变化日志
-        webRTCDriver.Manager.Peer.OnConnectionStateChange += (state) => {
-            Debug.Log($"Sender：连接状态改变为: {state}");
-        };
     }
 
     private void OnFilePathChanged(string path)
